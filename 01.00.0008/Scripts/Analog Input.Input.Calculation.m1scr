@@ -1,0 +1,5 @@
+local v = Ratiometric Voltage;
+
+local <Unsigned Integer> x = Convert.ToUnsignedInteger(v);
+
+CAN Tx Left Inverter.Motor Drive.Motor Current = x;

@@ -1,0 +1,409 @@
+<?xml version="1.0"?>
+<MoTeCM1BuildSession Locale="English_United Kingdom.1252" DefaultLocale="C" ProductName="M1Build" ProductVersion="1.4.0.239">
+ <Project FileFormat="10103" Name="ECU Firmware 1" VersionMajor="1" VersionMinor="0" BuildNumber="7" Author="Robbie" Company="University of Nottingham" ContactNo="N/A" Address="N/A" Email="N/A" SupportURL="N/A" Copyright="N/A" TargetHardware="ecu120" SecurityLevel="Off" DiagnosticLoggingCondition="">
+  <System VersionMajor="1" VersionMinor="4" VersionRelease="0" VersionBuild="0087" SelectedRelease="0"/>
+  <SelectedModuleSets>
+   <File Name="MoTeC Types" VersionMajor="1" VersionMinor="6" VersionBuild="0"/>
+   <File Name="MoTeC Comms" VersionMajor="1" VersionMinor="10" VersionBuild="2"/>
+  </SelectedModuleSets>
+  <Build PackageSignKey="University of Nottingham.M1.Package.Development 01.04.00"/>
+  <ComponentStream>
+   <List>
+    <Component Classname="BuiltIn.GroupLeaf" Name="Root">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN.Bus 1">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="MoTeC Comms.CAN Bus" Name="Root.CAN.Bus 1.Setup">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN.Bus 1.Setup.Diagnostic"/>
+    <Component Classname="BuiltIn.Constant" Name="Root.CAN.Bus 1.Setup.Bus">
+     <Props Value="CAN Bus 1"/>
+    </Component>
+    <Component Classname="BuiltIn.Reference" Name="Root.CAN.Bus 1.Setup.Mode">
+     <Props TargetCreation="AutoChannel"/>
+    </Component>
+    <Component Classname="BuiltIn.MethodUser" Name="Root.CAN.Bus 1.Setup.Startup"/>
+    <Component Classname="BuiltIn.MethodUser" Name="Root.CAN.Bus 1.Setup.Update"/>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.Analog Input">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.Analog Input.Input">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="_IOMethod.abs" Name="Root.Analog Input.Input.Absolute Voltage">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Input"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Absolute Filtered">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+      <Locale>
+       <Default Min="0.00000000000000000e+000" Max="5.00000000000000000e+000"/>
+      </Locale>
+     </Props>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Absolute">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+    </Component>
+    <Component Classname="BuiltIn.Reference" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Filter">
+     <Props TargetCreation="AutoParam" Target="This.Value">
+      <List.UserTags>
+       <Entry Value="Setup"/>
+      </List.UserTags>
+     </Props>
+    </Component>
+    <Component Classname="BuiltIn.Parameter" Name="Root.Analog Input.Input.Absolute Voltage.Filter.Value"/>
+    <Component Classname="BuiltIn.IOResourceValueInput" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Resource">
+     <Props NameCreation="AutoConst" NameTarget="This.Value"/>
+    </Component>
+    <Component Classname="BuiltIn.IOResourceConstant" Name="Root.Analog Input.Input.Absolute Voltage.Resource.Value">
+     <Props NameValue="AV15"/>
+    </Component>
+    <Component Classname="BuiltIn.FuncGenerated.IOMethod" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Reserve"/>
+    <Component Classname="BuiltIn.FuncGenerated.IOMethod" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Release"/>
+    <Component Classname="BuiltIn.FuncGenerated.IOMethod" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Initialise"/>
+    <Component Classname="BuiltIn.FuncGenerated.IOMethod" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Update">
+     <Props SelectedTrigger="Parent.Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Input Impedance">
+     <Props Qty="ohm"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Input Source">
+     <Props Qty="V"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Input Bandwidth">
+     <Props Qty="Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Input Minimum">
+     <Props Qty="V"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Input Maximum">
+     <Props Qty="V"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Absolute Voltage.Input Resolution">
+     <Props Qty="V"/>
+    </Component>
+    <Component Classname="BuiltIn.Parameter" Name="Root.Analog Input.Input.Filter time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Setup"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="Analog Input.Input.Calculation.m1scr" Name="Root.Analog Input.Input.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.Events">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On 10Hz">
+     <Props EventResource="res.knl.100MS"/>
+    </Component>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On 20Hz">
+     <Props EventResource="res.knl.50MS"/>
+    </Component>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On Startup">
+     <Props EventResource="res.knl.init"/>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Tx Inverter">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Tx Inverter.Motor Current">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Tx Inverter.Calculation Tx 0x221.m1scr" Name="Root.CAN Tx Inverter.Calculation Tx 0x221">
+     <Props SelectedTrigger="Parent.Parent.Events.On 100Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Inverter">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Inverter.Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Inverter.Diagnostic.Rx 0x201">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Inverter.Diagnostic.Rx 0x201.Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Inverter.Diagnostic.Rx 0x201.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Parameter" Name="Root.CAN Rx Inverter.Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Setup"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Inverter.Vehicle Velocity">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Inverter.Motor Velocity">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Inverter.Calculation Rx 0x201.m1scr" Name="Root.CAN Rx Inverter.Calculation Rx 0x201">
+     <Props SelectedTrigger="Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN.Bus 1.Setup.Mode.Value"/>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On 100Hz">
+     <Props EventResource="res.knl.10MS"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Tx Inverter.Motor Velocity">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Tx Inverter.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Inverter.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Setup"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="INIT.m1scr" Name="Root.INIT">
+     <Props SelectedTrigger="Parent.Events.On Startup"/>
+    </Component>
+   </List>
+   <Organisation>
+    <Component Name="Root">
+     <Component Name="CAN">
+      <Component Name="Bus 1">
+       <Component Name="Setup">
+        <Component Name="Diagnostic"/>
+        <Component Name="Bus"/>
+        <Component Name="Mode">
+         <Component Name="Value"/>
+        </Component>
+        <Component Name="Startup"/>
+        <Component Name="Update"/>
+       </Component>
+      </Component>
+     </Component>
+     <Component Name="Analog Input">
+      <Component Name="Input">
+       <Component Name="Absolute Voltage">
+        <Component Name="Absolute Filtered"/>
+        <Component Name="Absolute"/>
+        <Component Name="Filter">
+         <Component Name="Value"/>
+        </Component>
+        <Component Name="Resource">
+         <Component Name="Value"/>
+        </Component>
+        <Component Name="Reserve"/>
+        <Component Name="Release"/>
+        <Component Name="Initialise"/>
+        <Component Name="Update"/>
+        <Component Name="Input Impedance"/>
+        <Component Name="Input Source"/>
+        <Component Name="Input Bandwidth"/>
+        <Component Name="Input Minimum"/>
+        <Component Name="Input Maximum"/>
+        <Component Name="Input Resolution"/>
+       </Component>
+       <Component Name="Filter time"/>
+       <Component Name="Calculation"/>
+      </Component>
+     </Component>
+     <Component Name="Events">
+      <Component Name="On 10Hz"/>
+      <Component Name="On 20Hz"/>
+      <Component Name="On Startup"/>
+      <Component Name="On 100Hz"/>
+     </Component>
+     <Component Name="CAN Tx Inverter">
+      <Component Name="Motor Current"/>
+      <Component Name="Motor Velocity"/>
+      <Component Name="Calculation Tx 0x221"/>
+      <Component Name="Mode"/>
+     </Component>
+     <Component Name="CAN Rx Inverter">
+      <Component Name="Mode"/>
+      <Component Name="Diagnostic">
+       <Component Name="Rx 0x201">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Vehicle Velocity"/>
+      <Component Name="Motor Velocity"/>
+      <Component Name="Calculation Rx 0x201"/>
+     </Component>
+     <Component Name="INIT"/>
+    </Component>
+   </Organisation>
+  </ComponentStream>
+  <SecurityMgr>
+   <SecurityRoles>
+    <SecurityRole Name="Default Security Group"/>
+   </SecurityRoles>
+  </SecurityMgr>
+  <Users>
+   <User Id="MoTeC.M1.Firmware.Default">
+    <Permissions>
+     <LogData>
+      <Permission Flags="17" Index="0"/>
+      <Permission Flags="17" Index="1"/>
+      <Permission Flags="17" Index="2"/>
+      <Permission Flags="17" Index="3"/>
+      <Permission Flags="17" Index="4"/>
+      <Permission Flags="17" Index="5"/>
+      <Permission Flags="17" Index="6"/>
+      <Permission Flags="17" Index="7"/>
+     </LogData>
+     <ManageUsers Flags="4"/>
+     <Kernel Flags="4"/>
+     <Firmware Flags="68"/>
+     <Enables Flags="4"/>
+     <Login Flags="8"/>
+     <Clone Flags="8"/>
+     <EditPassword Flags="12"/>
+     <EditWorkbooks Flags="2"/>
+     <EditECUName Flags="6"/>
+     <LogErase>
+      <Permission Flags="12" Index="0"/>
+      <Permission Flags="12" Index="1"/>
+      <Permission Flags="12" Index="2"/>
+      <Permission Flags="12" Index="3"/>
+      <Permission Flags="12" Index="4"/>
+      <Permission Flags="12" Index="5"/>
+      <Permission Flags="12" Index="6"/>
+      <Permission Flags="12" Index="7"/>
+     </LogErase>
+     <LogSetup>
+      <Permission Flags="15" Index="0"/>
+      <Permission Flags="15" Index="1"/>
+      <Permission Flags="15" Index="2"/>
+      <Permission Flags="15" Index="3"/>
+      <Permission Flags="15" Index="4"/>
+      <Permission Flags="15" Index="5"/>
+      <Permission Flags="15" Index="6"/>
+      <Permission Flags="15" Index="7"/>
+     </LogSetup>
+    </Permissions>
+    <UserRoles>
+     <UserRole Name="Default Security Group" AccessType="2"/>
+    </UserRoles>
+    <AuthAnonymous Id="MoTeC.M1.Firmware.Default"/>
+   </User>
+  </Users>
+ </Project>
+</MoTeCM1BuildSession>

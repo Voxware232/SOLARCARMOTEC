@@ -1,0 +1,5 @@
+CAN.Bus 1.Setup.Mode = CAN Bus Mode Enumeration.1Mbps;
+CAN Tx Inverter.Mode = Mode Enumeration.Enabled;
+CAN Rx Inverter.Mode = Mode Enumeration.Enabled;
+
+CAN Tx Inverter.Motor Velocity = 100;

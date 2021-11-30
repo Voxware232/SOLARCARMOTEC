@@ -1,0 +1,25 @@
+local ok = true; // set local channel to true in order to allow CAN transmission
+local h = CanComms.TxOpen(false);
+local id = 0x0F0;
+local <Floating Point> scalar = 0.01;
+local <Floating Point> SpeedFloat = CAN Rx Left Inverter.Velocity Measurement.Vehicle Velocity*3600/(1000*scalar);
+Dash Tx.Speed.Speed = Convert.ToInteger(SpeedFloat);
+
+/*
+    ***Note***
+    Bit offset reversed for little endian
+    Start Bit = (64 - DBC File Stat Bit) - Bit Length
+*/
+
+ 
+
+
+if (CAN.Bus 1.Setup.Mode eq CAN Bus Mode Enumeration.1Mbps and Mode eq Mode Enumeration.Enabled)
+{
+    CanComms.TxInitialise(h, 4);
+    CanComms.SetInteger(h, 0, 32, Dash Tx.Speed.Speed); // Bit 0 - 16
+
+ 
+
+    ok = CanComms.TxStandard(h, 0, id) and ok; // send handle
+}

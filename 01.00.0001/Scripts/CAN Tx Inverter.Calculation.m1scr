@@ -1,0 +1,26 @@
+local ok = true; // set local channel to true in order to allow CAN transmission
+local h = CanComms.TxOpen(false);
+local id = 0x221;
+
+ 
+
+/*
+    ***Note***
+    Bit offset reversed for little endian
+    Start Bit = (64 - DBC File Stat Bit) - Bit Length
+*/
+
+ 
+
+ 
+
+if (CAN.Bus 1.Setup.Mode neq CAN Bus Mode Enumeration.Not in Use and Mode eq Mode Enumeration.Enabled)
+{
+    CanComms.TxInitialise(h, 8);
+    CanComms.SetUnsignedInteger(h, 32, 32, Motor Current); // Bit 32 - 63
+    CanComms.SetUnsignedInteger(h, 0, 32, Motor Velocity); // Bit 0 - 32
+
+ 
+
+    ok = CanComms.TxStandard(h, 0, id) and ok; // send handle
+}

@@ -1,0 +1,66 @@
+local t = System.ElapsedTime();
+local h = CanComms.RxOpenStandard(0, 0x201, 0x000, false); // Recieve CAN data
+local received = CanComms.RxMessage(h); // CAN bus recieved diagnostic channel, channel true if CAN message recieved
+local timeout = Delay.Rising(received eq false, CAN Rx Left Inverter.SI Diagnostic.Rx Timeout Time); // CAN Bus time out diagnostic channel, channel true if no message recieved for one second
+static local rxtime = 0.0;
+
+ 
+
+rxtime += t;
+
+ 
+
+/*
+    ***Note***
+    Bit offset reversed for little endian
+    Start Bit = (64 - DBC File Stat Bit) - Bit Length
+*/
+
+ 
+
+if (CAN.Bus 1.Setup.Mode eq CAN Bus Mode Enumeration.1Mbps and Mode eq Mode Enumeration.Enabled)
+{
+    if (received) 
+    {
+        Recieve Error Counts = CanComms.GetUnsignedInteger(h, 56, 8); // Bit 56 - 63
+        Transmit Error Counts = CanComms.GetUnsignedInteger(h, 48, 8); // Bit 48 - 55
+        Active Motor = CanComms.GetUnsignedInteger(h, 32, 8); // Bit 32 - 47
+        Error Flags = CanComms.GetUnsignedInteger(h, 16, 8); // Bit 16 - 31
+        Limit Flags = CanComms.GetUnsignedInteger(h, 0, 8); // Bit 0 - 15
+
+ 
+
+        CAN Rx Left Inverter.SI Diagnostic.Rx 0x201 = CAN Receive Diagnostic Enumeration.OK;
+        CAN Rx Left Inverter.SI Diagnostic.Rx 0x201.Time = rxtime; // Update
+        rxtime = 0; // Reset
+    }
+
+ 
+
+    else if (timeout) // if a no message is recieved, set all channels to nan or zero or no can data
+    {
+        Recieve Error Counts = 666;
+        Transmit Error Counts = 666;
+        Active Motor = 666;
+        Error Flags = 666;
+        Limit Flags = 666;
+        
+        CAN Rx Left Inverter.SI Diagnostic.Rx 0x201 = CAN Receive Diagnostic Enumeration.CAN Timeout;
+        CAN Rx Left Inverter.SI Diagnostic.Rx 0x201.Time = Calculate.NAN();
+    }
+}
+
+ 
+
+else
+{
+		Recieve Error Counts = 999;
+        Transmit Error Counts = 999;
+        Active Motor = 999;
+        Error Flags = 999;
+        Limit Flags = 999;
+    
+    CAN Rx Left Inverter.SI Diagnostic.Rx 0x201 = CAN Receive Diagnostic Enumeration.Not In Use;
+    CAN Rx Left Inverter.SI Diagnostic.Rx 0x201.Time = Calculate.NAN();
+    rxtime = 0.0; // Reset
+}

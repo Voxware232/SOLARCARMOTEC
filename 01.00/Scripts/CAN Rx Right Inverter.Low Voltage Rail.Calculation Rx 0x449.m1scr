@@ -1,0 +1,57 @@
+local t = System.ElapsedTime();
+local h = CanComms.RxOpenStandard(0, 0x449, 0x000, false); // Recieve CAN data
+local received = CanComms.RxMessage(h); // CAN bus recieved diagnostic channel, channel true if CAN message recieved
+local timeout = Delay.Rising(received eq false, CAN Rx Right Inverter.LVR Diagnostic.Rx Timeout Time); // CAN Bus time out diagnostic channel, channel true if no message recieved for one second
+static local rxtime = 0.0;
+
+ 
+
+rxtime += t;
+
+ 
+
+/*
+    ***Note***
+    Bit offset reversed for little endian
+    Start Bit = (64 - DBC File Stat Bit) - Bit Length
+*/
+
+ 
+
+if (CAN.Bus 1.Setup.Mode eq CAN Bus Mode Enumeration.1Mbps and Mode eq Mode Enumeration.Enabled)
+{
+    if (received) 
+    {
+        Upper Supply 3V = CanComms.GetFloat(h, 32); // Bit 32 - 63
+        Lower Supply 2V = CanComms.GetFloat(h, 0); // Bit 0 - 32
+
+ 
+
+        CAN Rx Right Inverter.LVR Diagnostic.Rx 0x449 = CAN Receive Diagnostic Enumeration.OK;
+        CAN Rx Right Inverter.LVR Diagnostic.Rx 0x449.Time = rxtime; // Update
+        rxtime = 0; // Reset
+    }
+
+ 
+
+    else if (timeout) // if a no message is recieved, set all channels to nan or zero or no can data
+    {
+        Upper Supply 3V = 666;
+        Lower Supply 2V = 666;
+        
+        CAN Rx Right Inverter.LVR Diagnostic.Rx 0x449 = CAN Receive Diagnostic Enumeration.CAN Timeout;
+        CAN Rx Right Inverter.LVR Diagnostic.Rx 0x449.Time = Calculate.NAN();
+    }
+}
+
+ 
+
+else
+{
+    Upper Supply 3V = 999;
+    Lower Supply 2V = 999;
+    
+    CAN Rx Right Inverter.LVR Diagnostic.Rx 0x449 = CAN Receive Diagnostic Enumeration.Not In Use;
+    CAN Rx Right Inverter.LVR Diagnostic.Rx 0x449.Time = Calculate.NAN();
+    rxtime = 0.0; // Reset
+}

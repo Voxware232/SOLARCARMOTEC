@@ -1,0 +1,5 @@
+local v = Filter.FirstOrder(Absolute Voltage,Filter time);
+
+local <Unsigned Integer> x = Convert.ToUnsignedInteger((v/5)*100);
+
+CAN Tx Inverter.Motor Current = x;

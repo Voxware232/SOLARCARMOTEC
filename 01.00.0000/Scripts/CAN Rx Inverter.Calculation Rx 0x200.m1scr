@@ -1,0 +1,57 @@
+local t = System.ElapsedTime();
+local h = CanComms.RxOpenStandard(0, 0x201, 0x000, false); // Recieve CAN data
+local received = CanComms.RxMessage(h); // CAN bus recieved diagnostic channel, channel true if CAN message recieved
+local timeout = Delay.Rising(received eq false, Diagnostic.Rx Timeout Time); // CAN Bus time out diagnostic channel, channel true if no message recieved for one second
+static local rxtime = 0.0;
+
+ 
+
+rxtime += t;
+
+ 
+
+/*
+    ***Note***
+    Bit offset reversed for little endian
+    Start Bit = (64 - DBC File Stat Bit) - Bit Length
+*/
+
+ 
+
+if (CAN.Bus 1.Setup.Mode neq CAN Bus Mode Enumeration.Not in Use and Mode eq Mode Enumeration.Enabled)
+{
+    if (received) 
+    {
+        Vehicle velocity = CanComms.GetInteger(h, 32, 32); // Bit 32 - 63
+        Motor velocity = CanComms.GetInteger(h, 0, 32); // Bit 0 - 32
+
+ 
+
+        Diagnostic.Rx 0x201 = CAN Receive Diagnostic Enumeration.OK;
+        Diagnostic.Rx 0x201.Time = rxtime; // Update
+        rxtime = 0; // Reset
+    }
+
+ 
+
+    else if (timeout) // if a no message is recieved, set all channels to nan or zero or no can data
+    {
+        Vehicle velocity = 0;
+        Motor velocity = 0;
+        
+        Diagnostic.Rx 0x201 = CAN Receive Diagnostic Enumeration.CAN Timeout;
+        Diagnostic.Rx 0x201.Time = Calculate.NAN();
+    }
+}
+
+ 
+
+else
+{
+    Vehicle velocity = 0;
+    Motor velocity = 0;
+    
+    Diagnostic.Rx 0x201 = CAN Receive Diagnostic Enumeration.Not In Use;
+    Diagnostic.Rx 0x201.Time = Calculate.NAN();
+    rxtime = 0.0; // Reset
+}

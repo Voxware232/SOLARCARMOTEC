@@ -1,0 +1,57 @@
+local t = System.ElapsedTime();
+local h = CanComms.RxOpenStandard(0, 0x20E, 0x000, false); // Recieve CAN data
+local received = CanComms.RxMessage(h); // CAN bus recieved diagnostic channel, channel true if CAN message recieved
+local timeout = Delay.Rising(received eq false, CAN Rx Left Inverter.OBA Diagnostic.Rx Timeout Time); // CAN Bus time out diagnostic channel, channel true if no message recieved for one second
+static local rxtime = 0.0;
+
+ 
+
+rxtime += t;
+
+ 
+
+/*
+    ***Note***
+    Bit offset reversed for little endian
+    Start Bit = (64 - DBC File Stat Bit) - Bit Length
+*/
+
+ 
+
+if (CAN.Bus 1.Setup.Mode eq CAN Bus Mode Enumeration.1Mbps and Mode eq Mode Enumeration.Enabled)
+{
+    if (received) 
+    {
+        DC Bus Ah = CanComms.GetFloat(h, 32); // Bit 32 - 63
+        Odometer = CanComms.GetFloat(h, 0); // Bit 0 - 32
+
+ 
+
+        CAN Rx Left Inverter.OBA Diagnostic.Rx 0x20E = CAN Receive Diagnostic Enumeration.OK;
+        CAN Rx Left Inverter.OBA Diagnostic.Rx 0x20E.Time = rxtime; // Update
+        rxtime = 0; // Reset
+    }
+
+ 
+
+    else if (timeout) // if a no message is recieved, set all channels to nan or zero or no can data
+    {
+        DC Bus Ah = 666;
+        Odometer = 666;
+        
+        CAN Rx Left Inverter.OBA Diagnostic.Rx 0x20E = CAN Receive Diagnostic Enumeration.CAN Timeout;
+        CAN Rx Left Inverter.OBA Diagnostic.Rx 0x20E.Time = Calculate.NAN();
+    }
+}
+
+ 
+
+else
+{
+    DC Bus Ah = 999;
+    Odometer = 999;
+    
+    CAN Rx Left Inverter.OBA Diagnostic.Rx 0x20E = CAN Receive Diagnostic Enumeration.Not In Use;
+    CAN Rx Left Inverter.OBA Diagnostic.Rx 0x20E.Time = Calculate.NAN();
+    rxtime = 0.0; // Reset
+}

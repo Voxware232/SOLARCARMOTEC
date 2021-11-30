@@ -1,0 +1,8 @@
+local <Floating Point> v = Ratiometric Voltage;
+
+local Vmin = 0.9;
+local Vmax = 1.9;
+
+local current = 100-((v-Vmin)*100)/(Vmax-Vmin);
+
+CAN Tx Left Inverter.Motor Drive.Motor Current = current;

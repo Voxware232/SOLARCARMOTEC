@@ -1,0 +1,3577 @@
+<?xml version="1.0"?>
+<MoTeCM1BuildSession Locale="English_United Kingdom.1252" DefaultLocale="C" ProductName="M1Build" ProductVersion="1.4.0.239">
+ <Project FileFormat="10103" Name="ECU Firmware 1" VersionMajor="1" VersionMinor="0" BuildNumber="21" Author="Robbie" Company="University of Nottingham" ContactNo="N/A" Address="N/A" Email="N/A" SupportURL="N/A" Copyright="N/A" TargetHardware="ecu120" SecurityLevel="Off" DiagnosticLoggingCondition="">
+  <System VersionMajor="1" VersionMinor="4" VersionRelease="0" VersionBuild="0074" SelectedRelease="0"/>
+  <SelectedModuleSets>
+   <File Name="MoTeC Types" VersionMajor="1" VersionMinor="6" VersionBuild="0"/>
+   <File Name="MoTeC Comms" VersionMajor="1" VersionMinor="10" VersionBuild="2"/>
+  </SelectedModuleSets>
+  <Build PackageSignKey="University of Nottingham.M1.Package.Development 01.04.00"/>
+  <ComponentStream>
+   <List>
+    <Component Classname="BuiltIn.GroupLeaf" Name="Root">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN.Bus 1">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="MoTeC Comms.CAN Bus" Name="Root.CAN.Bus 1.Setup">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN.Bus 1.Setup.Diagnostic"/>
+    <Component Classname="BuiltIn.Constant" Name="Root.CAN.Bus 1.Setup.Bus">
+     <Props Value="CAN Bus 1"/>
+    </Component>
+    <Component Classname="BuiltIn.Reference" Name="Root.CAN.Bus 1.Setup.Mode">
+     <Props TargetCreation="AutoChannel"/>
+    </Component>
+    <Component Classname="BuiltIn.MethodUser" Name="Root.CAN.Bus 1.Setup.Startup"/>
+    <Component Classname="BuiltIn.MethodUser" Name="Root.CAN.Bus 1.Setup.Update"/>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.Analog Input">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.Analog Input.Input">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="Analog Input.Input.Calculation.m1scr" Name="Root.Analog Input.Input.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.Events">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On 10Hz">
+     <Props EventResource="res.knl.100MS"/>
+    </Component>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On 20Hz">
+     <Props EventResource="res.knl.50MS"/>
+    </Component>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On Startup">
+     <Props EventResource="res.knl.init"/>
+    </Component>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On 100Hz">
+     <Props EventResource="res.knl.10MS"/>
+    </Component>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On 1Hz">
+     <Props EventResource="res.knl.1S"/>
+    </Component>
+    <Component Classname="BuiltIn.EventKernel" Name="Root.Events.On 5Hz">
+     <Props EventResource="res.knl.200MS"/>
+    </Component>
+    <Component Classname="BuiltIn.Reference" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Filter">
+     <Props TargetCreation="AutoParam" Target="This.Value">
+      <List.UserTags>
+       <Entry Value="Setup"/>
+      </List.UserTags>
+     </Props>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Absolute">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Normalised Filtered">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Input Minimum">
+     <Props Qty="V"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Input Impedance">
+     <Props Qty="ohm"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Input Maximum">
+     <Props Qty="V"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Input Bandwidth">
+     <Props Qty="Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Input Source">
+     <Props Qty="V"/>
+    </Component>
+    <Component Classname="BuiltIn.Parameter" Name="Root.Analog Input.Input.Ratiometric Voltage.Filter.Value"/>
+    <Component Classname="BuiltIn.Parameter" Name="Root.Analog Input.Input.Ratiometric Voltage.Reference.Value"/>
+    <Component Classname="BuiltIn.IOResourceValueInput" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Resource">
+     <Props NameCreation="AutoConst" NameTarget="This.Value"/>
+    </Component>
+    <Component Classname="BuiltIn.Reference" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Reference">
+     <Props TargetCreation="AutoParam" Target="This.Value">
+      <List.UserTags>
+       <Entry Value="Setup"/>
+      </List.UserTags>
+     </Props>
+    </Component>
+    <Component Classname="_IOMethod.ratio" Name="Root.Analog Input.Input.Ratiometric Voltage">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.IOResourceConstant" Name="Root.Analog Input.Input.Ratiometric Voltage.Resource.Value">
+     <Props NameValue="AV15"/>
+    </Component>
+    <Component Classname="BuiltIn.FuncGenerated.IOMethod" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Reserve"/>
+    <Component Classname="BuiltIn.FuncGenerated.IOMethod" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Release"/>
+    <Component Classname="BuiltIn.FuncGenerated.IOMethod" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Initialise"/>
+    <Component Classname="BuiltIn.FuncGenerated.IOMethod" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Update">
+     <Props SelectedTrigger="Parent.Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.IOCharacteristic" Caps="AutoCreated" Name="Root.Analog Input.Input.Ratiometric Voltage.Input Resolution">
+     <Props Qty="V"/>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.Dash Tx">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.Dash Tx.Speed">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="Dash Tx.Speed.Calculation.m1scr" Name="Root.Dash Tx.Speed.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.Dash Tx.Speed.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN.Bus 1.Setup.Mode.Value"/>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.BM Diagnostic.Rx 0x442">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.BM Diagnostic.Rx 0x442.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.BM Diagnostic.Rx 0x442.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.BM Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Phase Current Measurement">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Phase Current Measurement.Phase C Current">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Phase Current Measurement.Phase B Current">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Phase Current Measurement.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Phase Current Measurement.Calculation Rx 0x444.m1scr" Name="Root.CAN Rx Right Inverter.Phase Current Measurement.Calculation Rx 0x444">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.PCM Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.PCM Diagnostic.Rx 0x444">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.PCM Diagnostic.Rx 0x444.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.PCM Diagnostic.Rx 0x444.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.PCM Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Motor Voltage Vector">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Motor Voltage Vector.Vd">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Motor Voltage Vector.Vq">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Motor Voltage Vector.Calculation Rx 0x445.m1scr" Name="Root.CAN Rx Right Inverter.Motor Voltage Vector.Calculation Rx 0x445">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Motor Voltage Vector.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.MVV Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.MVV Diagnostic.Rx 0x445">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.MVV Diagnostic.Rx 0x445.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.MVV Diagnostic.Rx 0x445.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.MVV Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Motor Current Vector">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Motor Current Vector.Id">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Motor Current Vector.Iq">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Motor Current Vector.Calculation Rx 0x446.m1scr" Name="Root.CAN Rx Right Inverter.Motor Current Vector.Calculation Rx 0x446">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Motor Current Vector.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.MCV Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.MCV Diagnostic.Rx 0x446">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.MCV Diagnostic.Rx 0x446.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.MCV Diagnostic.Rx 0x446.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.MCV Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Motor BEMF">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Motor BEMF.Calculation Rx 0x447.m1scr" Name="Root.CAN Rx Right Inverter.Motor BEMF.Calculation Rx 0x447">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Motor BEMF.BEMFd">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Motor BEMF.BEMFq">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Motor BEMF.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.MBEMF Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.MBEMF Diagnostic.Rx 0x447">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.MBEMF Diagnostic.Rx 0x447.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.MBEMF Diagnostic.Rx 0x447.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.MBEMF Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.High Voltage Rail">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.High Voltage Rail.Supply 15V">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.High Voltage Rail.Reserved">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.High Voltage Rail.Calculation Rx 0x448.m1scr" Name="Root.CAN Rx Right Inverter.High Voltage Rail.Calculation Rx 0x448">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.High Voltage Rail.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.HVR Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.HVR Diagnostic.Rx 0x448">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.HVR Diagnostic.Rx 0x448.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.HVR Diagnostic.Rx 0x448.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.HVR Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Low Voltage Rail">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Low Voltage Rail.Upper Supply 3V">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Low Voltage Rail.Lower Supply 2V">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Low Voltage Rail.Calculation Rx 0x449.m1scr" Name="Root.CAN Rx Right Inverter.Low Voltage Rail.Calculation Rx 0x449">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Low Voltage Rail.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.LVR Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.LVR Diagnostic.Rx 0x449">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.LVR Diagnostic.Rx 0x449.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.LVR Diagnostic.Rx 0x449.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.LVR Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Reserved 1">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 1.Reserved 1">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 1.Reserved 2">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Reserved 1.Calculation Rx 0x20A.m1scr" Name="Root.CAN Rx Right Inverter.Reserved 1.Calculation Rx 0x20A">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On Startup"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 1.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Reserved 1 Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Reserved 1 Diagnostic.Rx 0x20A">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 1 Diagnostic.Rx 0x20A.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 1 Diagnostic.Rx 0x20A.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 1 Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Heatsink Motor Temp">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Heatsink Motor Temp.Heatsink Temp">
+     <Props Qty="K">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Heatsink Motor Temp.Motor Temp">
+     <Props Qty="K">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Heatsink Motor Temp.Calculation Rx 0x44B.m1scr" Name="Root.CAN Rx Right Inverter.Heatsink Motor Temp.Calculation Rx 0x44B">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Heatsink Motor Temp.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.HMT Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.HMT Diagnostic.Rx 0x44B">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.HMT Diagnostic.Rx 0x44B.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.HMT Diagnostic.Rx 0x44B.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.HMT Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.DSP Board Temp">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.DSP Board Temp.Reserved 3">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.DSP Board Temp.DSP Board Temp">
+     <Props Qty="K">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.DSP Board Temp.Calculation Rx 0x44C.m1scr" Name="Root.CAN Rx Right Inverter.DSP Board Temp.Calculation Rx 0x44C">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.DSP Board Temp.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.DSPBT Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.DSPBT Diagnostic.Rx 0x44C">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.DSPBT Diagnostic.Rx 0x44C.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.DSPBT Diagnostic.Rx 0x44C.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.DSPBT Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Reserved 2">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 2.Reserved 4">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 2.Reserved 5">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Reserved 2.Calculation Rx 0x20D.m1scr" Name="Root.CAN Rx Right Inverter.Reserved 2.Calculation Rx 0x20D">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On Startup"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 2.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Reserved 2 Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Reserved 2 Diagnostic.Rx 0x20D">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 2 Diagnostic.Rx 0x20D.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 2 Diagnostic.Rx 0x20D.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Reserved 2 Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Odometer Bus Ah">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Odometer Bus Ah.DC Bus Ah">
+     <Props Qty="Hz">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Odometer Bus Ah.Odometer">
+     <Props Qty="m">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Odometer Bus Ah.Calculation Rx 0x44E.m1scr" Name="Root.CAN Rx Right Inverter.Odometer Bus Ah.Calculation Rx 0x44E">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Odometer Bus Ah.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.OBA Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.OBA Diagnostic.Rx 0x44E">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.OBA Diagnostic.Rx 0x44E.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.OBA Diagnostic.Rx 0x44E.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.OBA Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Tx Left Inverter">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Tx Left Inverter.Motor Drive">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Tx Left Inverter.Motor Drive.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Tx Left Inverter.Motor Drive.Calculation Tx 0x221.m1scr" Name="Root.CAN Tx Left Inverter.Motor Drive.Calculation Tx 0x221">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 100Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Tx Left Inverter.Motor Drive.Motor Velocity">
+     <Props Qty="rad/s">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+      <Locale>
+       <Default Unit="rpm"/>
+      </Locale>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Tx Left Inverter.Motor Drive.Motor Current">
+     <Props Qty="ratio">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUserParam" Filename="CAN Tx Left Inverter.Motor Drive.Function.m1scr" Name="Root.CAN Tx Left Inverter.Motor Drive.Function">
+     <Signature Name="" ReturnType="">
+      <Params/>
+      <Description>
+<![CDATA[]]>
+      </Description>
+      <DescriptionFull>
+<![CDATA[]]>
+      </DescriptionFull>
+      <ReturnDescription>
+<![CDATA[]]>
+      </ReturnDescription>
+     </Signature>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Velocity Measurement">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Velocity Measurement.Calculation Rx 0x423.m1scr" Name="Root.CAN Rx Left Inverter.Velocity Measurement.Calculation Rx 0x423">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Velocity Measurement.Motor Velocity">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Velocity Measurement.Vehicle Velocity">
+     <Props Qty="m/s">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+      <Locale>
+       <Default Unit="km/h"/>
+      </Locale>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Velocity Measurement.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.VM Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.VM Diagnostic.Rx 0x423">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.VM Diagnostic.Rx 0x423.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.VM Diagnostic.Rx 0x423.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.VM Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Identification Info">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Identification Info.Calculation Rx 0x420.m1scr" Name="Root.CAN Rx Left Inverter.Identification Info.Calculation Rx 0x420">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Identification Info.Serial Number">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Identification Info.Tritium ID">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Identification Info.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Bus Measurement.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.II Diagnostic.Rx 0x420">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.II Diagnostic.Rx 0x420.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.II Diagnostic.Rx 0x420.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.II Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Status Info">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Status Info.Recieve Error Counts">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Status Info.Transmit Error Counts">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Status Info.Active Motor">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Status Info.Error Flags">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Status Info.Limit Flags">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Status Info.Calculation Rx 0x421.m1scr" Name="Root.CAN Rx Left Inverter.Status Info.Calculation Rx 0x421">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Status Info.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.SI Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.SI Diagnostic.Rx 0x421">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.SI Diagnostic.Rx 0x421.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.SI Diagnostic.Rx 0x421.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.SI Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Bus Measurement">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Bus Measurement.Calculation Rx 0x422.m1scr" Name="Root.CAN Rx Left Inverter.Bus Measurement.Calculation Rx 0x422">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Bus Measurement.Bus Current">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Bus Measurement.Bus Voltage">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Bus Measurement.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.BM Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.BM Diagnostic.Rx 0x422">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.BM Diagnostic.Rx 0x422.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.BM Diagnostic.Rx 0x422.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.BM Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Phase Current Measurement">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Phase Current Measurement.Phase C Current">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Phase Current Measurement.Phase B Current">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Phase Current Measurement.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Phase Current Measurement.Calculation Rx 0x424.m1scr" Name="Root.CAN Rx Left Inverter.Phase Current Measurement.Calculation Rx 0x424">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.PCM Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.PCM Diagnostic.Rx 0x424">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.PCM Diagnostic.Rx 0x424.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.PCM Diagnostic.Rx 0x424.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.PCM Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Motor Voltage Vector">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Motor Voltage Vector.Vd">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Motor Voltage Vector.Vq">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Motor Voltage Vector.Calculation Rx 0x205.m1scr" Name="Root.CAN Rx Left Inverter.Motor Voltage Vector.Calculation Rx 0x205">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Motor Voltage Vector.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.MVV Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.MVV Diagnostic.Rx 0x425">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.MVV Diagnostic.Rx 0x425.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.MVV Diagnostic.Rx 0x425.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.MVV Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Motor Current Vector">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Motor Current Vector.Id">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Motor Current Vector.Iq">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Motor Current Vector.Calculation Rx 0x426.m1scr" Name="Root.CAN Rx Left Inverter.Motor Current Vector.Calculation Rx 0x426">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Motor Current Vector.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.MCV Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.MCV Diagnostic.Rx 0x426">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.MCV Diagnostic.Rx 0x426.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.MCV Diagnostic.Rx 0x426.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.MCV Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Motor BEMF">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Motor BEMF.Calculation Rx 0x427.m1scr" Name="Root.CAN Rx Left Inverter.Motor BEMF.Calculation Rx 0x427">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Motor BEMF.BEMFd">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Motor BEMF.BEMFq">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Motor BEMF.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.MBEMF Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.MBEMF Diagnostic.Rx 0x427">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.MBEMF Diagnostic.Rx 0x427.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.MBEMF Diagnostic.Rx 0x427.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.MBEMF Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.High Voltage Rail">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.High Voltage Rail.Supply 15V">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.High Voltage Rail.Reserved">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.High Voltage Rail.Calculation Rx 0x428.m1scr" Name="Root.CAN Rx Left Inverter.High Voltage Rail.Calculation Rx 0x428">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.High Voltage Rail.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.HVR Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.HVR Diagnostic.Rx 0x428">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.HVR Diagnostic.Rx 0x428.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.HVR Diagnostic.Rx 0x428.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.HVR Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Low Voltage Rail">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Low Voltage Rail.Upper Supply 3V">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Low Voltage Rail.Lower Supply 2V">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Low Voltage Rail.Calculation Rx 0x429.m1scr" Name="Root.CAN Rx Left Inverter.Low Voltage Rail.Calculation Rx 0x429">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Low Voltage Rail.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.LVR Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.LVR Diagnostic.Rx 0x429">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.LVR Diagnostic.Rx 0x429.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.LVR Diagnostic.Rx 0x429.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.LVR Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Reserved 1">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 1.Reserved 1">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 1.Reserved 2">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Reserved 1.Calculation Rx 0x20A.m1scr" Name="Root.CAN Rx Left Inverter.Reserved 1.Calculation Rx 0x20A">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On Startup"/>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Tx Right Inverter">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Reserved 1 Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Reserved 1 Diagnostic.Rx 0x20A">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 1 Diagnostic.Rx 0x20A.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 1 Diagnostic.Rx 0x20A.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 1 Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Heatsink Motor Temp">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Heatsink Motor Temp.Heatsink Temp">
+     <Props Qty="K">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Heatsink Motor Temp.Motor Temp">
+     <Props Qty="K">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Heatsink Motor Temp.Calculation Rx 0x42B.m1scr" Name="Root.CAN Rx Left Inverter.Heatsink Motor Temp.Calculation Rx 0x42B">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Heatsink Motor Temp.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.HMT Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.HMT Diagnostic.Rx 0x42B">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.HMT Diagnostic.Rx 0x42B.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.HMT Diagnostic.Rx 0x42B.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.HMT Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.DSP Board Temp">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.DSP Board Temp.Reserved 3">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.DSP Board Temp.DSP Board Temp">
+     <Props Qty="K">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.DSP Board Temp.Calculation Rx 0x42C.m1scr" Name="Root.CAN Rx Left Inverter.DSP Board Temp.Calculation Rx 0x42C">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.DSP Board Temp.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.DSPBT Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.DSPBT Diagnostic.Rx 0x42C">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.DSPBT Diagnostic.Rx 0x42C.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.DSPBT Diagnostic.Rx 0x42C.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.DSPBT Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Reserved 2">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 2.Reserved 4">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 2.Reserved 5">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Reserved 2.Calculation Rx 0x20D.m1scr" Name="Root.CAN Rx Left Inverter.Reserved 2.Calculation Rx 0x20D">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On Startup"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 2.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Reserved 2 Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Reserved 2 Diagnostic.Rx 0x20D">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 2 Diagnostic.Rx 0x20D.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 2 Diagnostic.Rx 0x20D.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 2 Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.Odometer Bus Ah">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Odometer Bus Ah.DC Bus Ah">
+     <Props Qty="Hz">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Odometer Bus Ah.Odometer">
+     <Props Qty="m">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Left Inverter.Odometer Bus Ah.Calculation Rx 0x42E.m1scr" Name="Root.CAN Rx Left Inverter.Odometer Bus Ah.Calculation Rx 0x42E">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Odometer Bus Ah.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.OBA Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.OBA Diagnostic.Rx 0x42E">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.OBA Diagnostic.Rx 0x42E.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.OBA Diagnostic.Rx 0x42E.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.OBA Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Left Inverter.II Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Tx Right Inverter.Motor Drive">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Tx Right Inverter.Motor Drive.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Tx Right Inverter.Motor Drive.Calculation Tx 0x221.m1scr" Name="Root.CAN Tx Right Inverter.Motor Drive.Calculation Tx 0x221">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 100Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Tx Right Inverter.Motor Drive.Motor Velocity">
+     <Props Qty="rad/s">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+      <Locale>
+       <Default Unit="rpm"/>
+      </Locale>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Tx Right Inverter.Motor Drive.Motor Current">
+     <Props Qty="ratio">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUserParam" Filename="CAN Tx Right Inverter.Motor Drive.Function.m1scr" Name="Root.CAN Tx Right Inverter.Motor Drive.Function">
+     <Signature Name="" ReturnType="">
+      <Params/>
+      <Description>
+<![CDATA[]]>
+      </Description>
+      <DescriptionFull>
+<![CDATA[]]>
+      </DescriptionFull>
+      <ReturnDescription>
+<![CDATA[]]>
+      </ReturnDescription>
+     </Signature>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Velocity Measurement">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Velocity Measurement.Calculation Rx 0x443.m1scr" Name="Root.CAN Rx Right Inverter.Velocity Measurement.Calculation Rx 0x443">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Velocity Measurement.Motor Velocity">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Velocity Measurement.Vehicle Velocity">
+     <Props Qty="m/s">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+      <Locale>
+       <Default Unit="km/h"/>
+      </Locale>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Velocity Measurement.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.VM Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.VM Diagnostic.Rx 0x443">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.VM Diagnostic.Rx 0x443.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.VM Diagnostic.Rx 0x443.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.VM Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Identification Info">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Identification Info.Calculation Rx 0x440.m1scr" Name="Root.CAN Rx Right Inverter.Identification Info.Calculation Rx 0x440">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 5Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Identification Info.Serial Number">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Identification Info.Tritium ID">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Identification Info.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.II Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.II Diagnostic.Rx 0x440">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.II Diagnostic.Rx 0x440.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.II Diagnostic.Rx 0x440.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.II Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Status Info">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Status Info.Recieve Error Counts">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Status Info.Transmit Error Counts">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Status Info.Active Motor">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Status Info.Error Flags">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Status Info.Limit Flags">
+     <Props Type="u32">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Status Info.Calculation Rx 0x441.m1scr" Name="Root.CAN Rx Right Inverter.Status Info.Calculation Rx 0x441">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Status Info.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.SI Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.SI Diagnostic.Rx 0x441">
+     <Props UseDefValue="true" DefValue="This.Value"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.SI Diagnostic.Rx 0x441.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.SI Diagnostic.Rx 0x441.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.SI Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.Bus Measurement">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx Right Inverter.Bus Measurement.Calculation Rx 0x442.m1scr" Name="Root.CAN Rx Right Inverter.Bus Measurement.Calculation Rx 0x442">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 20Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Bus Measurement.Bus Current">
+     <Props Qty="A">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Right Inverter.Bus Measurement.Bus Voltage">
+     <Props Qty="V">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx Right Inverter.BM Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx Left Inverter.Reserved 1.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Vehicle"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Left Indicator">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Left Indicator.Calculation.m1scr" Name="Root.PDM Tx.Left Indicator.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Left Indicator.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Right Indicator">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Right Indicator.Calculation.m1scr" Name="Root.PDM Tx.Right Indicator.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Right Indicator.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Front And Rear Lights">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Front And Rear Lights.Calculation.m1scr" Name="Root.PDM Tx.Front And Rear Lights.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Front And Rear Lights.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Brake Lights">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Brake Lights.Calculation.m1scr" Name="Root.PDM Tx.Brake Lights.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Brake Lights.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Reverse Lights">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Reverse Lights.Calculation.m1scr" Name="Root.PDM Tx.Reverse Lights.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Reverse Lights.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Daylight Lights">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Daylight Lights.Calculation.m1scr" Name="Root.PDM Tx.Daylight Lights.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Daylight Lights.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Camera">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Camera.Calculation.m1scr" Name="Root.PDM Tx.Camera.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Camera.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Dash">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Dash.Calculation.m1scr" Name="Root.PDM Tx.Dash.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Dash.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.ECU">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.ECU.Calculation.m1scr" Name="Root.PDM Tx.ECU.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.ECU.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.MPPTs">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.MPPTs.Calculation.m1scr" Name="Root.PDM Tx.MPPTs.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.MPPTs.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Tritium">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Tritium.Calculation.m1scr" Name="Root.PDM Tx.Tritium.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Tritium.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.PDM Tx.Charger">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="PDM Tx.Charger.Calculation.m1scr" Name="Root.PDM Tx.Charger.Calculation">
+     <Props SelectedTrigger="Parent.Parent.Parent.Events.On 10Hz"/>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.PDM Tx.Charger.Mode">
+     <Props DefaultLogRate="100MS" Type="MoTeC Types.Mode Enumeration">
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="INIT.m1scr" Name="Root.INIT">
+     <Props SelectedTrigger="Parent.Events.On Startup"/>
+    </Component>
+   </List>
+   <Organisation>
+    <Component Name="Root">
+     <Component Name="CAN Tx Right Inverter">
+      <Component Name="Motor Drive">
+       <Component Name="Mode"/>
+       <Component Name="Calculation Tx 0x221"/>
+       <Component Name="Motor Velocity"/>
+       <Component Name="Motor Current"/>
+       <Component Name="Function"/>
+      </Component>
+     </Component>
+     <Component Name="CAN Rx Right Inverter">
+      <Component Name="Velocity Measurement">
+       <Component Name="Calculation Rx 0x443"/>
+       <Component Name="Motor Velocity"/>
+       <Component Name="Vehicle Velocity"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="VM Diagnostic">
+       <Component Name="Rx 0x443">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Identification Info">
+       <Component Name="Calculation Rx 0x440"/>
+       <Component Name="Serial Number"/>
+       <Component Name="Tritium ID"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="II Diagnostic">
+       <Component Name="Rx 0x440">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Status Info">
+       <Component Name="Recieve Error Counts"/>
+       <Component Name="Transmit Error Counts"/>
+       <Component Name="Active Motor"/>
+       <Component Name="Error Flags"/>
+       <Component Name="Limit Flags"/>
+       <Component Name="Calculation Rx 0x441"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="SI Diagnostic">
+       <Component Name="Rx 0x441">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Bus Measurement">
+       <Component Name="Calculation Rx 0x442"/>
+       <Component Name="Bus Current"/>
+       <Component Name="Bus Voltage"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="BM Diagnostic">
+       <Component Name="Rx 0x442">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Phase Current Measurement">
+       <Component Name="Phase C Current"/>
+       <Component Name="Phase B Current"/>
+       <Component Name="Mode"/>
+       <Component Name="Calculation Rx 0x444"/>
+      </Component>
+      <Component Name="PCM Diagnostic">
+       <Component Name="Rx 0x444">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Motor Voltage Vector">
+       <Component Name="Vd"/>
+       <Component Name="Vq"/>
+       <Component Name="Calculation Rx 0x445"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="MVV Diagnostic">
+       <Component Name="Rx 0x445">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Motor Current Vector">
+       <Component Name="Id"/>
+       <Component Name="Iq"/>
+       <Component Name="Calculation Rx 0x446"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="MCV Diagnostic">
+       <Component Name="Rx 0x446">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Motor BEMF">
+       <Component Name="Calculation Rx 0x447"/>
+       <Component Name="BEMFd"/>
+       <Component Name="BEMFq"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="MBEMF Diagnostic">
+       <Component Name="Rx 0x447">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="High Voltage Rail">
+       <Component Name="Supply 15V"/>
+       <Component Name="Reserved"/>
+       <Component Name="Calculation Rx 0x448"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="HVR Diagnostic">
+       <Component Name="Rx 0x448">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Low Voltage Rail">
+       <Component Name="Upper Supply 3V"/>
+       <Component Name="Lower Supply 2V"/>
+       <Component Name="Calculation Rx 0x449"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="LVR Diagnostic">
+       <Component Name="Rx 0x449">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Reserved 1">
+       <Component Name="Reserved 1"/>
+       <Component Name="Reserved 2"/>
+       <Component Name="Calculation Rx 0x20A"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Reserved 1 Diagnostic">
+       <Component Name="Rx 0x20A">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Heatsink Motor Temp">
+       <Component Name="Heatsink Temp"/>
+       <Component Name="Motor Temp"/>
+       <Component Name="Calculation Rx 0x44B"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="HMT Diagnostic">
+       <Component Name="Rx 0x44B">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="DSP Board Temp">
+       <Component Name="Reserved 3"/>
+       <Component Name="DSP Board Temp"/>
+       <Component Name="Calculation Rx 0x44C"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="DSPBT Diagnostic">
+       <Component Name="Rx 0x44C">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Reserved 2">
+       <Component Name="Reserved 4"/>
+       <Component Name="Reserved 5"/>
+       <Component Name="Calculation Rx 0x20D"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Reserved 2 Diagnostic">
+       <Component Name="Rx 0x20D">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Odometer Bus Ah">
+       <Component Name="DC Bus Ah"/>
+       <Component Name="Odometer"/>
+       <Component Name="Calculation Rx 0x44E"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="OBA Diagnostic">
+       <Component Name="Rx 0x44E">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+     </Component>
+     <Component Name="CAN Tx Left Inverter">
+      <Component Name="Motor Drive">
+       <Component Name="Mode"/>
+       <Component Name="Calculation Tx 0x221"/>
+       <Component Name="Motor Velocity"/>
+       <Component Name="Motor Current"/>
+       <Component Name="Function"/>
+      </Component>
+     </Component>
+     <Component Name="CAN Rx Left Inverter">
+      <Component Name="Velocity Measurement">
+       <Component Name="Calculation Rx 0x423"/>
+       <Component Name="Motor Velocity"/>
+       <Component Name="Vehicle Velocity"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="VM Diagnostic">
+       <Component Name="Rx 0x423">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Identification Info">
+       <Component Name="Calculation Rx 0x420"/>
+       <Component Name="Serial Number"/>
+       <Component Name="Tritium ID"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="II Diagnostic">
+       <Component Name="Rx 0x420">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Status Info">
+       <Component Name="Recieve Error Counts"/>
+       <Component Name="Transmit Error Counts"/>
+       <Component Name="Active Motor"/>
+       <Component Name="Error Flags"/>
+       <Component Name="Limit Flags"/>
+       <Component Name="Calculation Rx 0x421"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="SI Diagnostic">
+       <Component Name="Rx 0x421">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Bus Measurement">
+       <Component Name="Calculation Rx 0x422"/>
+       <Component Name="Bus Current"/>
+       <Component Name="Bus Voltage"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="BM Diagnostic">
+       <Component Name="Rx 0x422">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Phase Current Measurement">
+       <Component Name="Phase C Current"/>
+       <Component Name="Phase B Current"/>
+       <Component Name="Mode"/>
+       <Component Name="Calculation Rx 0x424"/>
+      </Component>
+      <Component Name="PCM Diagnostic">
+       <Component Name="Rx 0x424">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Motor Voltage Vector">
+       <Component Name="Vd"/>
+       <Component Name="Vq"/>
+       <Component Name="Calculation Rx 0x205"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="MVV Diagnostic">
+       <Component Name="Rx 0x425">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Motor Current Vector">
+       <Component Name="Id"/>
+       <Component Name="Iq"/>
+       <Component Name="Calculation Rx 0x426"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="MCV Diagnostic">
+       <Component Name="Rx 0x426">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Motor BEMF">
+       <Component Name="Calculation Rx 0x427"/>
+       <Component Name="BEMFd"/>
+       <Component Name="BEMFq"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="MBEMF Diagnostic">
+       <Component Name="Rx 0x427">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="High Voltage Rail">
+       <Component Name="Supply 15V"/>
+       <Component Name="Reserved"/>
+       <Component Name="Calculation Rx 0x428"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="HVR Diagnostic">
+       <Component Name="Rx 0x428">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Low Voltage Rail">
+       <Component Name="Upper Supply 3V"/>
+       <Component Name="Lower Supply 2V"/>
+       <Component Name="Calculation Rx 0x429"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="LVR Diagnostic">
+       <Component Name="Rx 0x429">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Reserved 1">
+       <Component Name="Reserved 1"/>
+       <Component Name="Reserved 2"/>
+       <Component Name="Calculation Rx 0x20A"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Reserved 1 Diagnostic">
+       <Component Name="Rx 0x20A">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Heatsink Motor Temp">
+       <Component Name="Heatsink Temp"/>
+       <Component Name="Motor Temp"/>
+       <Component Name="Calculation Rx 0x42B"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="HMT Diagnostic">
+       <Component Name="Rx 0x42B">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="DSP Board Temp">
+       <Component Name="Reserved 3"/>
+       <Component Name="DSP Board Temp"/>
+       <Component Name="Calculation Rx 0x42C"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="DSPBT Diagnostic">
+       <Component Name="Rx 0x42C">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Reserved 2">
+       <Component Name="Reserved 4"/>
+       <Component Name="Reserved 5"/>
+       <Component Name="Calculation Rx 0x20D"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Reserved 2 Diagnostic">
+       <Component Name="Rx 0x20D">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+      <Component Name="Odometer Bus Ah">
+       <Component Name="DC Bus Ah"/>
+       <Component Name="Odometer"/>
+       <Component Name="Calculation Rx 0x42E"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="OBA Diagnostic">
+       <Component Name="Rx 0x42E">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+     </Component>
+     <Component Name="CAN">
+      <Component Name="Bus 1">
+       <Component Name="Setup">
+        <Component Name="Diagnostic"/>
+        <Component Name="Bus"/>
+        <Component Name="Mode">
+         <Component Name="Value"/>
+        </Component>
+        <Component Name="Startup"/>
+        <Component Name="Update"/>
+       </Component>
+      </Component>
+     </Component>
+     <Component Name="Analog Input">
+      <Component Name="Input">
+       <Component Name="Ratiometric Voltage">
+        <Component Name="Normalised Filtered"/>
+        <Component Name="Absolute"/>
+        <Component Name="Filter">
+         <Component Name="Value"/>
+        </Component>
+        <Component Name="Reference">
+         <Component Name="Value"/>
+        </Component>
+        <Component Name="Resource">
+         <Component Name="Value"/>
+        </Component>
+        <Component Name="Reserve"/>
+        <Component Name="Release"/>
+        <Component Name="Initialise"/>
+        <Component Name="Update"/>
+        <Component Name="Input Impedance"/>
+        <Component Name="Input Source"/>
+        <Component Name="Input Bandwidth"/>
+        <Component Name="Input Minimum"/>
+        <Component Name="Input Maximum"/>
+        <Component Name="Input Resolution"/>
+       </Component>
+       <Component Name="Calculation"/>
+      </Component>
+     </Component>
+     <Component Name="Events">
+      <Component Name="On 10Hz"/>
+      <Component Name="On 20Hz"/>
+      <Component Name="On Startup"/>
+      <Component Name="On 100Hz"/>
+      <Component Name="On 1Hz"/>
+      <Component Name="On 5Hz"/>
+     </Component>
+     <Component Name="Dash Tx">
+      <Component Name="Speed">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+     </Component>
+     <Component Name="PDM Tx">
+      <Component Name="Left Indicator">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Right Indicator">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Front And Rear Lights">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Brake Lights">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Reverse Lights">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Daylight Lights">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Camera">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Dash">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="ECU">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="MPPTs">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Tritium">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+      <Component Name="Charger">
+       <Component Name="Calculation"/>
+       <Component Name="Mode"/>
+      </Component>
+     </Component>
+     <Component Name="INIT"/>
+    </Component>
+   </Organisation>
+  </ComponentStream>
+  <SecurityMgr>
+   <SecurityRoles>
+    <SecurityRole Name="Default Security Group"/>
+   </SecurityRoles>
+  </SecurityMgr>
+  <Users>
+   <User Id="MoTeC.M1.Firmware.Default">
+    <Permissions>
+     <LogData>
+      <Permission Flags="17" Index="0"/>
+      <Permission Flags="17" Index="1"/>
+      <Permission Flags="17" Index="2"/>
+      <Permission Flags="17" Index="3"/>
+      <Permission Flags="17" Index="4"/>
+      <Permission Flags="17" Index="5"/>
+      <Permission Flags="17" Index="6"/>
+      <Permission Flags="17" Index="7"/>
+     </LogData>
+     <ManageUsers Flags="4"/>
+     <Kernel Flags="4"/>
+     <Firmware Flags="68"/>
+     <Enables Flags="4"/>
+     <Login Flags="8"/>
+     <Clone Flags="8"/>
+     <EditPassword Flags="12"/>
+     <EditWorkbooks Flags="2"/>
+     <EditECUName Flags="6"/>
+     <LogErase>
+      <Permission Flags="12" Index="0"/>
+      <Permission Flags="12" Index="1"/>
+      <Permission Flags="12" Index="2"/>
+      <Permission Flags="12" Index="3"/>
+      <Permission Flags="12" Index="4"/>
+      <Permission Flags="12" Index="5"/>
+      <Permission Flags="12" Index="6"/>
+      <Permission Flags="12" Index="7"/>
+     </LogErase>
+     <LogSetup>
+      <Permission Flags="15" Index="0"/>
+      <Permission Flags="15" Index="1"/>
+      <Permission Flags="15" Index="2"/>
+      <Permission Flags="15" Index="3"/>
+      <Permission Flags="15" Index="4"/>
+      <Permission Flags="15" Index="5"/>
+      <Permission Flags="15" Index="6"/>
+      <Permission Flags="15" Index="7"/>
+     </LogSetup>
+    </Permissions>
+    <UserRoles>
+     <UserRole Name="Default Security Group" AccessType="2"/>
+    </UserRoles>
+    <AuthAnonymous Id="MoTeC.M1.Firmware.Default"/>
+   </User>
+  </Users>
+ </Project>
+</MoTeCM1BuildSession>
