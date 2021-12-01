@@ -1,4 +1,6 @@
 CAN.Bus 1.Setup.Mode = CAN Bus Mode Enumeration.1Mbps;
+
+// Left Inverter
 CAN Tx Left Inverter.Motor Drive.Mode = Mode Enumeration.Enabled;
 CAN Rx Left Inverter.Velocity Measurement.Mode = Mode Enumeration.Enabled;
 CAN Tx Left Inverter.Motor Drive.Motor Velocity = 100;
@@ -30,6 +32,41 @@ CAN Rx Left Inverter.DSP Board Temp.Mode = Mode Enumeration.Enabled;
 CAN Rx Left Inverter.Reserved 2.Mode = Mode Enumeration.Disabled;
 
 CAN Rx Left Inverter.Odometer Bus Ah.Mode = Mode Enumeration.Enabled;
+
+// Right Inverter
+CAN Tx Right Inverter.Motor Drive.Mode = Mode Enumeration.Enabled;
+CAN Rx Right Inverter.Velocity Measurement.Mode = Mode Enumeration.Enabled;
+CAN Tx Right Inverter.Motor Drive.Motor Velocity = 100;
+
+CAN Rx Right Inverter.Identification Info.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.Status Info.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.Bus Measurement.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.Phase Current Measurement.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.Motor Voltage Vector.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.Motor Current Vector.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.Motor BEMF.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.High Voltage Rail.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.Low Voltage Rail.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.Reserved 1.Mode = Mode Enumeration.Disabled;
+
+CAN Rx Right Inverter.Heatsink Motor Temp.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.DSP Board Temp.Mode = Mode Enumeration.Enabled;
+
+CAN Rx Right Inverter.Reserved 2.Mode = Mode Enumeration.Disabled;
+
+CAN Rx Right Inverter.Odometer Bus Ah.Mode = Mode Enumeration.Enabled;
+
+// DASH
 
 Dash Tx.Speed.Mode = Mode Enumeration.Enabled;
 
@@ -65,3 +102,19 @@ CAN Rx Left Inverter.Reserved 2 Diagnostic.Rx Timeout Time = 100;
 CAN Rx Left Inverter.OBA Diagnostic.Rx Timeout Time = 100;
 CAN Rx Left Inverter.HMT Diagnostic.Rx Timeout Time = 100;
 CAN Rx Left Inverter.DSPBT Diagnostic.Rx Timeout Time = 100;
+
+CAN Rx Right Inverter.VM Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.II Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.SI Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.BM Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.PCM Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.MVV Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.MCV Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.MBEMF Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.HVR Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.LVR Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.Reserved 1 Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.Reserved 2 Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.OBA Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.HMT Diagnostic.Rx Timeout Time = 100;
+CAN Rx Right Inverter.DSPBT Diagnostic.Rx Timeout Time = 100;
