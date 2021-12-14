@@ -23,13 +23,9 @@ CAN Rx Left Inverter.High Voltage Rail.Mode = Mode Enumeration.Enabled;
 
 CAN Rx Left Inverter.Low Voltage Rail.Mode = Mode Enumeration.Enabled;
 
-CAN Rx Left Inverter.Reserved 1.Mode = Mode Enumeration.Disabled;
-
 CAN Rx Left Inverter.Heatsink Motor Temp.Mode = Mode Enumeration.Enabled;
 
 CAN Rx Left Inverter.DSP Board Temp.Mode = Mode Enumeration.Enabled;
-
-CAN Rx Left Inverter.Reserved 2.Mode = Mode Enumeration.Disabled;
 
 CAN Rx Left Inverter.Odometer Bus Ah.Mode = Mode Enumeration.Enabled;
 
@@ -56,15 +52,15 @@ CAN Rx Right Inverter.High Voltage Rail.Mode = Mode Enumeration.Enabled;
 
 CAN Rx Right Inverter.Low Voltage Rail.Mode = Mode Enumeration.Enabled;
 
-CAN Rx Right Inverter.Reserved 1.Mode = Mode Enumeration.Disabled;
-
 CAN Rx Right Inverter.Heatsink Motor Temp.Mode = Mode Enumeration.Enabled;
 
 CAN Rx Right Inverter.DSP Board Temp.Mode = Mode Enumeration.Enabled;
 
-CAN Rx Right Inverter.Reserved 2.Mode = Mode Enumeration.Disabled;
-
 CAN Rx Right Inverter.Odometer Bus Ah.Mode = Mode Enumeration.Enabled;
+
+// TO BE FIXED?
+CAN Tx Right Inverter.Motor Drive.Motor Current = 0;
+
 
 // DASH
 
@@ -97,8 +93,6 @@ CAN Rx Left Inverter.MCV Diagnostic.Rx Timeout Time = 100;
 CAN Rx Left Inverter.MBEMF Diagnostic.Rx Timeout Time = 100;
 CAN Rx Left Inverter.HVR Diagnostic.Rx Timeout Time = 100;
 CAN Rx Left Inverter.LVR Diagnostic.Rx Timeout Time = 100;
-CAN Rx Left Inverter.Reserved 1 Diagnostic.Rx Timeout Time = 100;
-CAN Rx Left Inverter.Reserved 2 Diagnostic.Rx Timeout Time = 100;
 CAN Rx Left Inverter.OBA Diagnostic.Rx Timeout Time = 100;
 CAN Rx Left Inverter.HMT Diagnostic.Rx Timeout Time = 100;
 CAN Rx Left Inverter.DSPBT Diagnostic.Rx Timeout Time = 100;
@@ -113,8 +107,6 @@ CAN Rx Right Inverter.MCV Diagnostic.Rx Timeout Time = 100;
 CAN Rx Right Inverter.MBEMF Diagnostic.Rx Timeout Time = 100;
 CAN Rx Right Inverter.HVR Diagnostic.Rx Timeout Time = 100;
 CAN Rx Right Inverter.LVR Diagnostic.Rx Timeout Time = 100;
-CAN Rx Right Inverter.Reserved 1 Diagnostic.Rx Timeout Time = 100;
-CAN Rx Right Inverter.Reserved 2 Diagnostic.Rx Timeout Time = 100;
 CAN Rx Right Inverter.OBA Diagnostic.Rx Timeout Time = 100;
 CAN Rx Right Inverter.HMT Diagnostic.Rx Timeout Time = 100;
 CAN Rx Right Inverter.DSPBT Diagnostic.Rx Timeout Time = 100;
