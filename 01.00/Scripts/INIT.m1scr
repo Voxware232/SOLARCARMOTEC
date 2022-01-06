@@ -58,6 +58,11 @@ CAN Rx Right Inverter.DSP Board Temp.Mode = Mode Enumeration.Enabled;
 
 CAN Rx Right Inverter.Odometer Bus Ah.Mode = Mode Enumeration.Enabled;
 
+// MPPT 1
+
+CAN Rx MPPT 1.Input Measurements.Mode = Mode Enumeration.Enabled;
+
+
 // TO BE FIXED?
 CAN Tx Right Inverter.Motor Drive.Motor Current = 0;
 

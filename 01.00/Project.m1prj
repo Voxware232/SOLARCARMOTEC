@@ -2645,9 +2645,99 @@
     <Component Classname="BuiltIn.FuncUser" Filename="INIT.m1scr" Name="Root.INIT">
      <Props SelectedTrigger="Parent.Events.On Startup"/>
     </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx MPPT 1.Input Measurements.Input Voltage">
+     <Props Qty="V"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Tx MPPT 1">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.FuncUser" Filename="CAN Rx MPPT 1.Input Measurements.Calculation Rx 0x6A0.m1scr" Name="Root.CAN Rx MPPT 1.Input Measurements.Calculation Rx 0x6A0"/>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx MPPT 1.Input Measurements.Input Current">
+     <Props Qty="A"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx MPPT 1.Input Measurements.Mode">
+     <Props Type="MoTeC Types.Mode Enumeration"/>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx MPPT 1">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx MPPT 1.IM Diagnostic.Rx Timeout Time">
+     <Props>
+      <List.UserTags>
+       <Entry Value="Normal"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx MPPT 1.IM Diagnostic.Rx 0x6A0.Value">
+     <Props Type="MoTeC Comms.CAN Receive Diagnostic Enumeration">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.Channel" Name="Root.CAN Rx MPPT 1.IM Diagnostic.Rx 0x6A0.Time">
+     <Props Qty="s">
+      <List.UserTags>
+       <Entry Value="Diagnostic"/>
+      </List.UserTags>
+     </Props>
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx MPPT 1.IM Diagnostic.Rx 0x6A0">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx MPPT 1.IM Diagnostic">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
+    <Component Classname="BuiltIn.GroupCompound" Name="Root.CAN Rx MPPT 1.Input Measurements">
+     <Comment>
+<![CDATA[]]>
+     </Comment>
+    </Component>
    </List>
    <Organisation>
     <Component Name="Root">
+     <Component Name="CAN Rx MPPT 1">
+      <Component Name="Input Measurements">
+       <Component Name="Input Voltage"/>
+       <Component Name="Mode"/>
+       <Component Name="Input Current"/>
+       <Component Name="Calculation Rx 0x6A0"/>
+      </Component>
+      <Component Name="IM Diagnostic">
+       <Component Name="Rx 0x6A0">
+        <Component Name="Time"/>
+        <Component Name="Value"/>
+       </Component>
+       <Component Name="Rx Timeout Time"/>
+      </Component>
+     </Component>
+     <Component Name="CAN Tx MPPT 1"/>
      <Component Name="CAN Tx Right Inverter">
       <Component Name="Motor Drive">
        <Component Name="Mode"/>
